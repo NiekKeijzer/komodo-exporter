@@ -51,6 +51,8 @@ export KOMODO_URL=http://komodo:9120 KOMODO_API_KEY="..." KOMODO_API_SECRET="...
 ./komodo-exporter -listen :9821
 ```
 
+`-version` prints the version and exits.
+
 Every scrape of `/metrics` queries Komodo, with a 10 second timeout. Scrape it
 at Komodo's own polling rate or slower.
 
@@ -67,6 +69,7 @@ komodo_stack_state{state!~"running|deploying"} == 1
 |---|---|
 | `komodo_up`: whether the last query of the Komodo API succeeded; other metrics are left out when it didn't | |
 | `komodo_scrape_duration_seconds` | |
+| `komodo_exporter_build_info`: always 1 | `version`, `revision`, `goversion`, `goos`, `goarch`, … |
 | `komodo_server_state`: `ok`, `not_ok` or `disabled` | `server`, `state` |
 | `komodo_server_info`: the Periphery version | `server`, `version` |
 | `komodo_server_cpu_usage_percent` | `server` |

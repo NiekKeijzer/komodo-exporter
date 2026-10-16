@@ -1,9 +1,11 @@
 package main
 
 import (
+	"context"
 	"errors"
 	"io"
 	"log/slog"
+	"net/http/httptest"
 	"strings"
 	"testing"
 )
@@ -23,9 +25,14 @@ var fullEnv = map[string]string{
 
 func TestSetup(t *testing.T) {
 	logger := slog.New(slog.NewTextHandler(io.Discard, nil))
-	_, listen, err := setup([]string{"-listen", ":1234"}, lookup(fullEnv), logger, io.Discard)
+	h, listen, err := setup([]string{"-listen", ":1234"}, lookup(fullEnv), logger, io.Discard)
 	if err != nil || listen != ":1234" {
-		t.Errorf("setup = %q, %v, want :1234, nil", listen, err)
+		t.Fatalf("setup = %q, %v, want :1234, nil", listen, err)
+	}
+	rec := httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest("GET", "/metrics", nil))
+	if !strings.Contains(rec.Body.String(), "komodo_exporter_build_info{") {
+		t.Errorf("/metrics lacks komodo_exporter_build_info:\n%s", rec.Body)
 	}
 
 	if _, _, err := setup([]string{"extra"}, lookup(fullEnv), logger, io.Discard); !errors.Is(err, errUsage) {
@@ -42,5 +49,15 @@ func TestSetup(t *testing.T) {
 		if _, _, err := setup(nil, lookup(env), logger, io.Discard); err == nil || !strings.Contains(err.Error(), name) {
 			t.Errorf("setup without %s: err = %v, want it named", name, err)
 		}
+	}
+}
+
+func TestVersion(t *testing.T) {
+	var stdout strings.Builder
+	if code := run(context.Background(), []string{"-version"}, lookup(nil), &stdout, io.Discard); code != 0 {
+		t.Errorf("run -version = %d, want 0", code)
+	}
+	if !strings.HasPrefix(stdout.String(), "komodo-exporter, version") {
+		t.Errorf("run -version printed %q", stdout.String())
 	}
 }

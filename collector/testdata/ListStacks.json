@@ -1,0 +1,5 @@
+[
+  {"id": "st1", "type": "Stack", "name": "edge", "template": false, "tags": [], "info": {"swarm_id": "", "server_id": "srv2", "server_name": "periphery-01", "files_on_host": false, "file_contents": false, "linked_repo": "r1", "state": "running", "status": "running(2)", "services": [], "project_missing": false, "missing_files": [], "deployed_hash": "abc1234", "latest_hash": "abc1234"}},
+  {"id": "st2", "type": "Stack", "name": "security", "template": false, "tags": [], "info": {"swarm_id": "", "server_id": "srv2", "server_name": "periphery-01", "files_on_host": false, "file_contents": false, "linked_repo": "r1", "state": "unhealthy", "status": null, "services": [], "project_missing": false, "missing_files": [], "deployed_hash": null, "latest_hash": null}},
+  {"id": "st3", "type": "Stack", "name": "monitoring", "template": false, "tags": [], "info": {"swarm_id": "", "server_id": "srv2", "server_name": "periphery-01", "files_on_host": false, "file_contents": false, "linked_repo": "r1", "state": "down", "status": null, "services": [], "project_missing": true, "missing_files": [], "deployed_hash": null, "latest_hash": null}}
+]

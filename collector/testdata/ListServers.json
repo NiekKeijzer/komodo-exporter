@@ -1,0 +1,6 @@
+[
+  {"id": "srv1", "type": "Server", "name": "komodo-01", "template": false, "tags": [], "info": {"state": "Ok", "err": null, "region": "", "address": null, "version": "v2.3.3", "send_unreachable_alerts": true}},
+  {"id": "srv2", "type": "Server", "name": "periphery-01", "template": false, "tags": [], "info": {"state": "Ok", "err": null, "region": "", "address": "wss://192.0.2.24:8120", "version": "v2.3.3", "send_unreachable_alerts": true}},
+  {"id": "srv3", "type": "Server", "name": "periphery-02", "template": false, "tags": [], "info": {"state": "NotOk", "err": {"error": "connection refused", "trace": []}, "region": "", "address": "wss://192.0.2.25:8120", "version": null, "send_unreachable_alerts": true}},
+  {"id": "srv4", "type": "Server", "name": "old-01", "template": false, "tags": [], "info": {"state": "Disabled", "err": null, "region": "", "address": null, "version": null, "send_unreachable_alerts": true}}
+]

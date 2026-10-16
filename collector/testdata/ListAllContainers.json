@@ -1,0 +1,6 @@
+[
+  {"server_id": "srv2", "server_name": "periphery-01", "name": "edge-traefik-1", "id": "c1", "image": "traefik:v3.7.15", "state": "running", "status": "Up 2 hours (healthy)", "networks": ["edge"], "ports": [], "volumes": [], "stats": {"name": "edge-traefik-1", "cpu_perc": "1.50%", "mem_perc": "0.80%", "mem_usage": "62.5MiB / 7.637GiB", "net_io": "1.2MB / 3.4MB", "block_io": "0B / 0B", "pids": "12"}, "labels": {}},
+  {"server_id": "srv2", "server_name": "periphery-01", "name": "security-authentik-db-init-1", "id": "c2", "image": "postgres:18-alpine", "state": "exited", "status": "Exited (0) 2 hours ago", "networks": [], "ports": [], "volumes": [], "stats": null, "labels": {}},
+  {"server_id": "srv2", "server_name": "periphery-01", "name": "edge-whoami-1", "id": "c3", "image": "traefik/whoami", "state": "restarting", "status": "Restarting (1) 5 seconds ago", "networks": ["edge"], "ports": [], "volumes": [], "labels": {}},
+  {"server_id": "srv2", "server_name": "periphery-01", "name": "security-authentik-1", "id": "c4", "image": "ghcr.io/goauthentik/server:2026.8", "state": "running", "status": "Up 3 minutes (unhealthy)", "networks": ["edge", "infra"], "ports": [], "volumes": [], "stats": {"name": "security-authentik-1", "cpu_perc": "--", "mem_perc": "--", "mem_usage": "-- / --", "net_io": "--", "block_io": "--", "pids": "--"}, "labels": {}}
+]

@@ -1,0 +1,1 @@
+[{"id": "rs1", "type": "ResourceSync", "name": "homelab", "template": false, "tags": [], "info": {"last_sync_ts": 0, "files_on_host": false, "file_contents": false, "managed": false, "resource_path": ["komodo"], "linked_repo": "r1", "state": "Pending"}}]
